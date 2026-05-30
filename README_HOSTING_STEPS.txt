@@ -1,4 +1,4 @@
-WarmHand by MindCare - Clean Website Package
+﻿MindCare by WarmHand Impact Group - Clean Website Package
 
 Status:
 - This is a local static website package only.
