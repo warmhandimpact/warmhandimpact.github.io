@@ -1,0 +1,118 @@
+/* WarmHand Clear Emerald Glass — corrective overlay v3.
+   Actual see-through liquid glass rather than dark green painted cards.
+   Last stylesheet after glass-theme.css, intentionally overrides opaque fills. */
+:root{
+  --clear-glass:rgba(208,255,226,.09);
+  --clear-edge:rgba(229,255,239,.55);
+  --clear-light:rgba(226,255,241,.21);
+  --clear-shadow:0 20px 48px rgba(0,23,18,.16),inset 0 1px 0 rgba(255,255,255,.28);
+}
+html{background:#072d24}
+body{
+  background:
+    radial-gradient(ellipse 42% 22% at 66% 7%,rgba(172,255,185,.55),transparent 72%),
+    radial-gradient(ellipse 52% 27% at 3% 22%,rgba(35,192,119,.62),transparent 75%),
+    radial-gradient(ellipse 50% 27% at 105% 44%,rgba(123,228,166,.52),transparent 74%),
+    radial-gradient(ellipse 42% 24% at 17% 61%,rgba(67,195,135,.54),transparent 75%),
+    radial-gradient(ellipse 56% 24% at 95% 87%,rgba(106,224,168,.43),transparent 74%),
+    linear-gradient(145deg,#0b5740,#0d5f48 38%,#063b2d 70%,#092d26)!important;
+  background-attachment:fixed;
+}
+body::before{
+  z-index:0!important;
+  filter:none!important;
+  opacity:1;
+  background:
+    radial-gradient(ellipse 220px 310px at 91% 12%,rgba(190,255,182,.22),transparent 70%),
+    radial-gradient(ellipse 180px 370px at 5% 38%,rgba(18,109,67,.30),transparent 74%),
+    radial-gradient(circle 90px at 78% 59%,rgba(195,255,218,.18),transparent 71%),
+    radial-gradient(circle 65px at 19% 73%,rgba(201,255,185,.15),transparent 75%);
+}
+body > header{position:sticky;z-index:90}
+body > main,body > footer{position:relative;z-index:1}
+/* Main hero and content: a bright translucent reflection over clearly visible green atmosphere. */
+.hero-copy,
+.split-section,.split-section.reverse,.partnership-section,
+.card-grid-section,.timeline-section,.product-spotlight,
+.full-bleed-card,.founder-note,
+.portfolio-hero,.portfolio-wrap .section,
+.content-card,.hero-card{
+  background:linear-gradient(128deg,rgba(231,255,240,.145) 0%,rgba(213,255,232,.055) 47%,rgba(126,239,169,.075) 100%)!important;
+  border:1px solid var(--clear-edge)!important;
+  box-shadow:var(--clear-shadow)!important;
+  -webkit-backdrop-filter:blur(12px) saturate(123%)!important;
+  backdrop-filter:blur(12px) saturate(123%)!important;
+}
+.info-card,.steps article,.partner-cards span,.portfolio-panel,.check-list li{
+  background:linear-gradient(142deg,rgba(228,255,235,.12),rgba(201,255,229,.045))!important;
+  border:1px solid rgba(231,255,238,.37)!important;
+  box-shadow:0 10px 28px rgba(0,20,16,.09),inset 0 1px 0 rgba(255,255,255,.20)!important;
+  -webkit-backdrop-filter:blur(9px) saturate(120%)!important;
+  backdrop-filter:blur(9px) saturate(120%)!important
+}
+/* Reflective highlight is a sheen, not opaque filler. */
+.hero-copy{position:relative;isolation:isolate}
+.hero-copy::before{
+  background:radial-gradient(ellipse at 86% 4%,rgba(230,255,229,.17),rgba(170,255,191,.04) 38%,transparent 68%)!important;
+  width:360px!important;height:320px!important;pointer-events:none
+}
+.site-header{
+  background:rgba(22,92,68,.20)!important;
+  border-bottom:1px solid rgba(238,255,241,.35)!important;
+  -webkit-backdrop-filter:blur(15px) saturate(123%)!important;
+  backdrop-filter:blur(15px) saturate(123%)!important
+}
+.mobile-nav summary{
+  background:rgba(215,255,232,.09)!important;
+  border:1px solid rgba(240,255,245,.47)!important
+}
+.mobile-nav[open] .mobile-nav-links{
+  background:rgba(8,69,49,.50)!important;
+  -webkit-backdrop-filter:blur(20px)!important;backdrop-filter:blur(20px)!important
+}
+.status-badge,.soft-badge,.legal-pill,.portfolio-summary span,.button.secondary,.button.ghost{
+  background:rgba(203,255,225,.075)!important;
+  border:1px solid rgba(235,255,237,.43)!important;
+  -webkit-backdrop-filter:blur(11px)!important;
+  backdrop-filter:blur(11px)!important
+}
+.safe-note,.portfolio-note,.notice{
+  background:rgba(203,255,226,.075)!important;
+  border:1px solid rgba(238,255,236,.35)!important
+}
+.site-footer{
+  background:rgba(207,255,229,.075)!important;
+  border:1px solid rgba(237,255,241,.36)!important;
+  -webkit-backdrop-filter:blur(12px)!important;
+  backdrop-filter:blur(12px)!important
+}
+/* A small edge reflection gives glass shape without blocking the image behind it. */
+.hero-copy::after,.portfolio-hero::after{
+  content:"";position:absolute;top:1px;left:6%;width:49%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.65),transparent);
+  pointer-events:none
+}
+.portfolio-hero{position:relative}
+/* Glass only helps when text remains readable. */
+.hero-copy h1,.section h2,.portfolio-hero h1,
+.content-card h1,.content-card h2,.hero-card h1,
+.info-card h3,.steps h3,.portfolio-panel h3{color:#f8fff8!important}
+.hero-lead,.section p,.portfolio-hero p,.portfolio-panel p,
+.content-card p,.content-card li,.hero-card p{color:#e5f6e9!important}
+@media(max-width:620px){
+  body{background-attachment:scroll}
+  body::before{position:absolute;min-height:100%;background-size:100% 100%}
+  .hero-copy,.portfolio-hero,.content-card,.hero-card{box-shadow:0 13px 35px rgba(0,28,20,.16),inset 0 1px 0 rgba(255,255,255,.28)!important}
+}
+/* Accessibility overrides must come after the translucent declarations. */
+@media(prefers-reduced-transparency:reduce){
+  .site-header,.hero-copy,.split-section,.split-section.reverse,.partnership-section,.card-grid-section,.timeline-section,.product-spotlight,.full-bleed-card,.founder-note,.portfolio-hero,.portfolio-wrap .section,.content-card,.hero-card,.info-card,.steps article,.partner-cards span,.portfolio-panel{
+    background:#14543e!important;
+    -webkit-backdrop-filter:none!important;backdrop-filter:none!important
+  }
+}
+@supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){
+  .site-header,.hero-copy,.split-section,.split-section.reverse,.partnership-section,.card-grid-section,.timeline-section,.product-spotlight,.full-bleed-card,.founder-note,.portfolio-hero,.portfolio-wrap .section,.content-card,.hero-card,.info-card,.steps article,.partner-cards span,.portfolio-panel{
+    background:rgba(11,72,51,.92)!important
+  }
+}
