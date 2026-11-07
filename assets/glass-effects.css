@@ -1,0 +1,14 @@
+/* Subtle WarmHand glass surfaces, with readable solid fallbacks. */
+:root{--glass-stroke:rgba(255,255,255,.78);--glass-shadow:0 16px 38px rgba(13,66,47,.10)}
+body{background:radial-gradient(ellipse 60% 32% at 90% 4%,rgba(126,202,173,.25),transparent 75%),radial-gradient(ellipse 55% 30% at 5% 38%,rgba(181,215,198,.24),transparent 80%),#f0f1eb}
+.site-header{background:rgba(246,249,244,.94);border-bottom:1px solid rgba(255,255,255,.8)}
+.hero-copy{background:rgba(255,255,255,.90);border:1px solid var(--glass-stroke);box-shadow:var(--glass-shadow);position:relative;overflow:hidden}
+.hero-copy::before{content:"";position:absolute;inset:0 0 auto auto;width:180px;height:180px;transform:translate(35%,-45%);background:radial-gradient(circle,rgba(123,209,173,.23),transparent 72%);pointer-events:none}
+.hero-copy>*{position:relative}
+.hero-visual{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.85)}
+.hero-visual::after{content:"";position:absolute;left:16px;bottom:16px;width:90px;height:28px;border-radius:15px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);box-shadow:0 6px 16px rgba(0,0,0,.07);pointer-events:none}
+.info-card,.steps article,.product-spotlight{background:rgba(255,255,255,.91);border:1px solid rgba(255,255,255,.82);box-shadow:0 8px 26px rgba(13,66,47,.06)}
+.mobile-nav[open] .mobile-nav-links{background:rgba(255,255,255,.96);border-color:rgba(255,255,255,.85)}
+@supports ((-webkit-backdrop-filter:blur(14px)) or (backdrop-filter:blur(14px))){.site-header{-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}.hero-copy{-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);background:rgba(255,255,255,.76)}.hero-visual::after{-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}.info-card,.steps article,.product-spotlight{-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);background:rgba(255,255,255,.82)}.mobile-nav[open] .mobile-nav-links{-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);background:rgba(255,255,255,.86)}}
+@media(prefers-reduced-transparency:reduce){.site-header,.hero-copy,.info-card,.steps article,.product-spotlight,.mobile-nav[open] .mobile-nav-links{background:#fffdf8;-webkit-backdrop-filter:none;backdrop-filter:none}.hero-visual::after{display:none}}
+@media(max-width:620px){.hero-visual::after{left:12px;bottom:12px;width:62px;height:22px}.hero-copy{box-shadow:0 8px 22px rgba(13,66,47,.07)}}
