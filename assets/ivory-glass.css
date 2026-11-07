@@ -327,3 +327,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #13
  }
  .info-card,.steps article,.partner-cards span,.portfolio-panel{background:rgba(249,252,246,.92)!important}
 }
+
+/* Specificity fix: older glass-clarity.css sets .portfolio-hero p to near-white.
+   The section label must use the forest-green foreground on pale glass. */
+body.portfolio-page .portfolio-hero p.eyebrow {
+  color: #1c6145 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
